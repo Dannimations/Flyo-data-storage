@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Big+Shoulders+Display:wght@100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Kumbh+Sans:wght@100..900&family=Lexend+Deca:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Young+Serif&display=swap');   
+
+:root{
+    --clr-gradient-start: hsl(6, 100%, 80%);
+    --clr-gradient-stop: hsl(335, 100%, 65%);
+
+    --clr-pale-blue: hsl(243, 100%, 93%);
+    --clr-grayish-blue: hsl(229, 7%, 55%);
+    --clr-dark-blue: hsl(228, 56%, 26%);
+    --clr-very-dark-blue: hsl(229, 57%, 11%);
+
+    --font-family: "Raleway", sans-serif;
+    --fs-body: .9rem;
+    --fw-400: 400;
+    --fw-700: 700;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+body{
+    font-family: var(--font-family);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-400);
+    line-height: 1.6;
+    color: var(--clr-pale-blue);
+    background: url(images/bg-mobile.png) no-repeat var(--clr-very-dark-blue);
+    background-size: cover;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+strong{
+    color: #fff;
+}
+.bigNumber{
+    font-size: 2.53rem;
+    color: var(--clr-very-dark-blue);
+}
+
+.smallNumber{
+    font-weight: var(--fw-700);
+    color: var(--clr-grayish-blue);
+}
+
+.storageNavigation{
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.storageNavigation  button{
+    width: 50px;
+    height: 50px;
+    border: none;
+    display: grid;
+    place-items: center;
+    border-radius: .6rem;
+    background: var(--clr-very-dark-blue);
+}
+
+.colOne, .colTwo{
+    padding: 2rem;
+    border-radius: .8rem;
+    background: var(--clr-dark-blue);
+    position: relative;
+}
+
+.colOne{
+    border-top-right-radius: 6rem;
+}
+
+.colTwo{
+    padding-bottom: 3rem;
+}
+
+.progressBar{
+    content: '';
+    width: 100%;
+    height: 1.25rem;
+    margin: 1rem 0;
+    background: var(--clr-very-dark-blue);
+    border-radius: 999px;
+}
+
+.progressBar-bg{
+    content: '';
+    width: 70%;
+    height: .9rem;
+    border-radius: 999px;
+    translate: 4px 2px;
+    position: relative;
+    background: linear-gradient(to right, var(--clr-gradient-start), var(--clr-gradient-stop));
+}
+
+.progressBar-bg::after{
+    position: absolute;
+    top: 1px;
+    right: 2px;
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.leftOverStorage{
+    justify-content: space-between;
+    font-weight: var(--fw-700);
+}
+
+.storageLeft{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 50%;
+    width: max-content;
+    gap: .5rem;
+    padding: 0 1.5rem;
+    border-radius: .8rem;
+    background: #fff;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    height: 100dvh; 
+}
+
+.storage{
+    width: 90%;
+    gap: 1rem;
+    align-items: initial;
+    flex-direction: column;
+}
+
+@media (min-width: 850px) {
+    body{
+        background: url(images/bg-desktop.png) no-repeat #0c122c;
+        background-size: contain;
+        background-position: bottom;
+    }
+    .storage{
+        width: 70%;
+        max-width: 70rem;
+        gap: 2rem;
+        flex-direction: row; 
+        align-items: flex-end;
+    }
+    .colOne{
+        padding-top: 3rem;
+        flex-basis: 40%;
+    }
+    .colTwo{
+        height: 150px;
+        flex-basis: 60%;
+        padding-bottom: initial;
+    }
+    .storageLeft{
+        bottom: initial;
+        left: initial;
+        translate: initial;
+        right: 2rem;
+        top: -2rem;
+    }
+    .storageLeft::after{
+        content: '';
+        position: absolute;
+        border-left: 10px solid #fff;
+        border-bottom: 10px solid #fff;
+        border-right: 10px solid transparent;
+        border-top: 10px solid transparent;
+        rotate: 45deg;
+        right: -.6rem;
+        bottom: -.6rem;
+
+    }
+}
+
+
+
+
